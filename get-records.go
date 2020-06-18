@@ -26,6 +26,13 @@ func (t *Table) GetRecords() *GetRecordsConfig {
 	}
 }
 
+// Page size to request
+func (grc *GetRecordsConfig) PageSize(size int) *GetRecordsConfig {
+	sizeStr := strconv.Itoa(size)
+	grc.params.Add("pageSize", sizeStr)
+	return grc
+}
+
 // Max records to request
 func (grc *GetRecordsConfig) MaxRecords(max int) *GetRecordsConfig {
 	maxStr := strconv.Itoa(max)
